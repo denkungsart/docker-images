@@ -1,4 +1,32 @@
+# VCS
 .git
-build
-Changelog.md
-README.md
+.gitignore
+
+# CI/CD
+.github/
+
+# Logs and temp files
+logs/
+tmp/
+*.log
+
+# Node/npm
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Ruby
+bundler.staging
+.bundle/
+.bundle/config
+.gem/
+.yardoc
+_yardoc
+coverage/
+doc/
+pkg/
+.rspec_status
+
+# Docker
+.dockerignore
+Dockerfile.*
