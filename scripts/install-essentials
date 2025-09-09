@@ -4,16 +4,16 @@ set -xeo pipefail
 apt-get update
 
 # psql required for database creation in test env
-apt-get install -y postgresql-client
+apt-get install -y --no-install-recommends postgresql-client
 
 # image processing
-apt-get install -y libvips42
+apt-get install -y --no-install-recommends libvips42
 
 # required by https://circleci.com/developer/orbs/orb/circleci/browser-tools
-apt-get install -y jq
+apt-get install -y --no-install-recommends jq
 
 # Tools for transforming and inspecting PDF files
-apt-get install -y \
+apt-get install -y --no-install-recommends \
     pdftk \
     ghostscript \
     qpdf \
