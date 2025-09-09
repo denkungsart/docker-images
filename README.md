@@ -1,20 +1,20 @@
-This Docker image is used in development and testing environments. It aims at mirroring our production setup as close as possible. The image is based on Debian buster (see https://github.com/docker-library/ruby/blob/master/3.0/buster/Dockerfile)
+This Docker image is used in development and testing environments. It aims at mirroring our production setup as close as possible. The image is based on Debian Bookworm (see https://github.com/docker-library/ruby/).
 
 ## How to build this image
 
-* As soon as a new commit is pushed to GitHub the image will automatically build using Docker Hub's infrastructure. The build status can be monitored [here](https://hub.docker.com/r/aventurini/ci-ruby/builds).
-* Docker tag names will be derived from the name of the branch
-* To build the image locally the supplied build shell script can be used
+* Images are built and published to GHCR via GitHub Actions.
+* Docker tag names are derived from the branch name.
+* To build the image locally, use the supplied `build` script.
 
 ## Included dependencies
 
 ### Node.js
 
-By default Node.js 20 will be installed as per the [official guidelines](https://github.com/nodesource/distributions?tab=readme-ov-file#installation-instructions). Note that `npm` is no logner installed.
+By default Node.js 20 will be installed as per the [official guidelines](https://github.com/nodesource/distributions?tab=readme-ov-file#installation-instructions). Note that `npm` may be present but Yarn is the primary package manager.
 
 ### Yarn 2
 
-The latest version of Yarn 2+ (berry) is installed via [Corepack](https://yarnpkg.com/getting-started/install)
+Yarn 4 (Berry) is installed via [Corepack](https://yarnpkg.com/getting-started/install) and pinned for reproducibility.
 
 ### wkhtmltopdf
 
@@ -22,4 +22,4 @@ The latest stable version of wkhtmltopdf is installed from https://github.com/wk
 
 ### FFmpeg
 
-The latest official ffmpeg package for Debian is istalled <https://packages.debian.org/bookworm/ffmpeg>
+The latest official ffmpeg package for Debian is installed <https://packages.debian.org/bookworm/ffmpeg>
