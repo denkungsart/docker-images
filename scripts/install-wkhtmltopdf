@@ -2,7 +2,12 @@
 set -xeo pipefail
 
 apt-get update
-apt-get install -y xfonts-75dpi xfonts-base
+apt-get install -y --no-install-recommends \
+  xfonts-75dpi \
+  xfonts-base \
+  fontconfig \
+  fonts-dejavu \
+  fonts-liberation
 
 # ref https://github.com/wkhtmltopdf/packaging/releases
 WKHTMLTOPDF_RELEASE_VERSION="0.12.6.1-3"
