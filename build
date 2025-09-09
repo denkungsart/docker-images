@@ -5,11 +5,12 @@
 # set -o pipefail: prevent errors in a pipeline from being masked
 set -euo pipefail
 
-TAG=3.4.5-node-yarn-wkhtmltopdf-ffmpeg
+TAG=${TAG:-3.4.5-node-yarn-wkhtmltopdf-ffmpeg}
 
 NAME=ghcr.io/denkungsart/ci-ruby:"$TAG"
 
 # docker buildx create --use --platform=linux/arm64,linux/amd64 --name multi-platform-builder
+mkdir -p logs
 docker buildx build \
   --platform linux/amd64 \
   --output type=docker \
