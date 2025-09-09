@@ -26,7 +26,7 @@ RUN gem install bundler
 RUN gem update --system
 
 # Clean up apt and tmp folders
-RUN apt-get purge -y --auto-remove \
+RUN apt-get autoremove -y \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
