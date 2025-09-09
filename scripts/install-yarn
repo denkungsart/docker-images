@@ -3,4 +3,5 @@ set -xeo pipefail
 
 # https://yarnpkg.com/getting-started/install
 corepack enable
-yarn set version stable
+# Pin Yarn version to avoid surprise upgrades
+corepack prepare yarn@4.3.1 --activate
