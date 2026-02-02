@@ -10,7 +10,7 @@ This Docker image is used in development and testing environments. It aims at mi
 
 ### Node.js
 
-By default Node.js 20 will be installed as per the [official guidelines](https://github.com/nodesource/distributions?tab=readme-ov-file#installation-instructions). Note that `npm` may be present but Yarn is the primary package manager.
+By default Node.js 24 will be installed as per the [official guidelines](https://nodejs.org/en/download). Note that `npm` may be present but Yarn is the primary package manager.
 
 ### Yarn 2
 
