@@ -10,7 +10,7 @@ This Docker image is used in development and testing environments. It aims at mi
 
 ### Node.js
 
-By default Node.js 24 will be installed as per the [official guidelines](https://nodejs.org/en/download). Note that `npm` may be present but Yarn is the primary package manager.
+By default Node.js 24 will be installed via node-build (system-wide, not user-specific). Note that `npm` may be present but Yarn is the primary package manager.
 
 ### Yarn 2
 

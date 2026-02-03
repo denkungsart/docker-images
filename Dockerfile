@@ -6,10 +6,13 @@ COPY scripts/install-essentials /tmp/install-essentials
 RUN /tmp/install-essentials
 
 # Node.js
+ARG NODE_VERSION=24
+ENV PATH=/usr/local/node/bin:$PATH
 COPY scripts/install-node /tmp/install-node
-RUN /tmp/install-node && node --version
+RUN NODE_VERSION=$NODE_VERSION /tmp/install-node && node --version
 
 # Yarn
+ENV COREPACK_HOME=/usr/local/share/corepack
 COPY scripts/install-yarn /tmp/install-yarn
 RUN /tmp/install-yarn && yarn --version
 

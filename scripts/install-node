@@ -1,23 +1,37 @@
 #!/bin/bash
 set -xeo pipefail
 
-# Download and install nvm:
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+NODE_VERSION="${NODE_VERSION:-24}"
+NODE_PREFIX="${NODE_PREFIX:-/usr/local/node}"
 
-# in lieu of restarting the shell
-export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
-. "$NVM_DIR/nvm.sh"
+# Prereqs for node-build downloads
+apt-get update
+apt-get install -y --no-install-recommends curl ca-certificates xz-utils
+rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
-# Download and install Node.js:
-nvm install 24
+# Install Node via node-build (system-wide, not tied to /root)
+curl -sL https://github.com/nodenv/node-build/archive/master.tar.gz | tar xz -C /tmp
+
+# If only a major version is provided (e.g. "24"), resolve to latest patch.
+if [[ "${NODE_VERSION}" =~ ^[0-9]+$ ]]; then
+  NODE_MAJOR="${NODE_VERSION}"
+  NODE_VERSION="$(/tmp/node-build-master/bin/node-build --definitions | \
+    grep -E "^${NODE_MAJOR}\\.[0-9]+\\.[0-9]+$" | sort -V | tail -n 1)"
+  if [[ -z "${NODE_VERSION}" ]]; then
+    echo "node-build: definition not found for major ${NODE_MAJOR}" >&2
+    exit 2
+  fi
+fi
+
+/tmp/node-build-master/bin/node-build "${NODE_VERSION}" "${NODE_PREFIX}"
+rm -rf /tmp/node-build-master
 
 # Make node/npm available to subsequent Docker layers
-NODE_BIN_DIR="$NVM_DIR/versions/node/$(nvm version)/bin"
 install -d /usr/local/bin
-ln -sf "$NODE_BIN_DIR/node" /usr/local/bin/node
-ln -sf "$NODE_BIN_DIR/npm" /usr/local/bin/npm
-ln -sf "$NODE_BIN_DIR/npx" /usr/local/bin/npx
-ln -sf "$NODE_BIN_DIR/corepack" /usr/local/bin/corepack
+ln -sf "${NODE_PREFIX}/bin/node" /usr/local/bin/node
+ln -sf "${NODE_PREFIX}/bin/npm" /usr/local/bin/npm
+ln -sf "${NODE_PREFIX}/bin/npx" /usr/local/bin/npx
+ln -sf "${NODE_PREFIX}/bin/corepack" /usr/local/bin/corepack
 
 node -v
 npm -v

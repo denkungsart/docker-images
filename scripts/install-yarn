@@ -2,6 +2,10 @@
 set -xeo pipefail
 
 # https://yarnpkg.com/getting-started/install
-corepack enable
+# Use a global, non-user-specific Corepack home so non-root users can run Yarn.
+export COREPACK_HOME=/usr/local/share/corepack
+install -d "$COREPACK_HOME"
+
+corepack enable --install-directory /usr/local/bin
 # Pin Yarn version to avoid surprise upgrades
 corepack prepare yarn@4.3.1 --activate
