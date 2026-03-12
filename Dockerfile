@@ -1,4 +1,4 @@
-FROM ruby:3.4.8-bookworm
+FROM ruby:3.4.9-bookworm
 ARG TARGETPLATFORM
 
 # build essentials
