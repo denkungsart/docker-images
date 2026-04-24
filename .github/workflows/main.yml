@@ -1,6 +1,11 @@
 name: Build & publish docker image
 on:
   push:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     name: Build and push image (${{ matrix.arch }})
