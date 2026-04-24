@@ -16,3 +16,5 @@ WKHTMLTOPDF_BINARY="wkhtmltox_${WKHTMLTOPDF_RELEASE_VERSION}.bookworm_${TARGETPL
 wget "https://github.com/wkhtmltopdf/packaging/releases/download/${WKHTMLTOPDF_RELEASE_VERSION}/${WKHTMLTOPDF_BINARY}"
 dpkg -i "${WKHTMLTOPDF_BINARY}"
 rm "${WKHTMLTOPDF_BINARY}"
+apt-get clean
+rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*

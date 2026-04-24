@@ -2,19 +2,13 @@
 set -xeo pipefail
 
 apt-get update
-
-# psql required for database creation in test env
-apt-get install -y --no-install-recommends postgresql-client
-
-# image processing
-apt-get install -y --no-install-recommends libvips42
-
-# required by https://circleci.com/developer/orbs/orb/circleci/browser-tools
-apt-get install -y --no-install-recommends jq
-
-# Tools for transforming and inspecting PDF files
 apt-get install -y --no-install-recommends \
-    pdftk \
-    ghostscript \
-    qpdf \
-    poppler-utils
+  postgresql-client \
+  libvips42 \
+  jq \
+  pdftk \
+  ghostscript \
+  qpdf \
+  poppler-utils
+apt-get clean
+rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*

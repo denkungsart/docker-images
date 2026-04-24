@@ -28,10 +28,8 @@ RUN /tmp/install-ffmpeg && ffmpeg -version && ffprobe -version
 RUN gem install bundler
 RUN gem update --system
 
-# Clean up apt and tmp folders
-RUN apt-get autoremove -y \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# Remove copied helper scripts and temporary files
+RUN rm -rf /tmp/* /var/tmp/*
 
 # Set locale to UTF-8
 ENV LANG=C.UTF-8

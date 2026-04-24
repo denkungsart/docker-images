@@ -3,3 +3,5 @@ set -xeo pipefail
 
 apt-get update
 apt-get install -y --no-install-recommends ffmpeg
+apt-get clean
+rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
