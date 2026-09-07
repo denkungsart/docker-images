@@ -1,4 +1,4 @@
-This Docker image is used in development and testing environments. It aims at mirroring our production setup as close as possible. The image is based on Debian Bookworm (see https://github.com/docker-library/ruby/).
+This Docker image is used in development and testing environments. It aims at mirroring our production setup as close as possible. The image is based on Debian Trixie (see https://github.com/docker-library/ruby/).
 
 ## How to build this image
 
@@ -16,10 +16,10 @@ By default Node.js 24 will be installed via node-build (system-wide, not user-sp
 
 Yarn 4 (Berry) is installed via [Corepack](https://yarnpkg.com/getting-started/install) and pinned for reproducibility.
 
-### wkhtmltopdf
+### WeasyPrint
 
-The latest stable version of wkhtmltopdf is installed from https://github.com/wkhtmltopdf/packaging/releases
+The official WeasyPrint package for Debian is installed <https://packages.debian.org/trixie/weasyprint>
 
 ### FFmpeg
 
-The latest official ffmpeg package for Debian is installed <https://packages.debian.org/bookworm/ffmpeg>
+The latest official ffmpeg package for Debian is installed <https://packages.debian.org/trixie/ffmpeg>

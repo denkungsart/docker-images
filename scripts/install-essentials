@@ -4,9 +4,9 @@ set -xeo pipefail
 apt-get update
 apt-get install -y --no-install-recommends \
   postgresql-client \
-  libvips42 \
+  libvips42t64 \
   jq \
-  pdftk \
+  pdftk-java \
   ghostscript \
   qpdf \
   poppler-utils

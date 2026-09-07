@@ -1,5 +1,4 @@
-FROM ruby:4.0.6-bookworm
-ARG TARGETPLATFORM
+FROM ruby:4.0.6-trixie
 
 # build essentials
 COPY scripts/install-essentials /tmp/install-essentials
@@ -16,9 +15,9 @@ ENV COREPACK_HOME=/usr/local/share/corepack
 COPY scripts/install-yarn /tmp/install-yarn
 RUN /tmp/install-yarn && yarn --version
 
-# wkhtmltopdf
-COPY scripts/install-wkhtmltopdf /tmp/install-wkhtmltopdf
-RUN /tmp/install-wkhtmltopdf && wkhtmltopdf --version
+# weasyprint
+COPY scripts/install-weasyprint /tmp/install-weasyprint
+RUN /tmp/install-weasyprint && weasyprint --version
 
 # FFmpeg
 COPY scripts/install-ffmpeg /tmp/install-ffmpeg
