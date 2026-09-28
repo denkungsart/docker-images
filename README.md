@@ -23,3 +23,9 @@ The latest stable version of wkhtmltopdf is installed from https://github.com/wk
 ### FFmpeg
 
 The latest official ffmpeg package for Debian is installed <https://packages.debian.org/bookworm/ffmpeg>
+
+### Chrome
+
+On amd64, the current Google Chrome stable release is installed together with the matching chromedriver from [Chrome for Testing](https://github.com/GoogleChromeLabs/chrome-for-testing). Google does not publish Linux arm64 builds, so arm64 images get Debian's `chromium` and `chromium-driver` packages instead, with `google-chrome` linked to `chromium`.
+
+Chrome is not pinned: rebuilding the image picks up the latest stable release.
