@@ -16,10 +16,6 @@ By default Node.js 24 will be installed via node-build (system-wide, not user-sp
 
 Yarn 4 (Berry) is installed via [Corepack](https://yarnpkg.com/getting-started/install) and pinned for reproducibility.
 
-### FFmpeg
-
-The latest official ffmpeg package for Debian is installed <https://packages.debian.org/trixie/ffmpeg>
-
 ### Chrome
 
 On amd64, the current Google Chrome stable release is installed together with the matching chromedriver from [Chrome for Testing](https://github.com/GoogleChromeLabs/chrome-for-testing). Google does not publish Linux arm64 builds, so arm64 images get Debian's `chromium` and `chromium-driver` packages instead, with `google-chrome` linked to `chromium`.
