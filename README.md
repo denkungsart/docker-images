@@ -15,7 +15,3 @@ By default Node.js 24 will be installed via node-build (system-wide, not user-sp
 ### Yarn 2
 
 Yarn 4 (Berry) is installed via [Corepack](https://yarnpkg.com/getting-started/install) and pinned for reproducibility.
-
-### FFmpeg
-
-The latest official ffmpeg package for Debian is installed <https://packages.debian.org/trixie/ffmpeg>
