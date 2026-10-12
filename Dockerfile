@@ -20,9 +20,8 @@ RUN /tmp/install-yarn && yarn --version
 COPY scripts/install-ffmpeg /tmp/install-ffmpeg
 RUN /tmp/install-ffmpeg && ffmpeg -version && ffprobe -version
 
-# Install bundler 2 & RubyGems
+# Install bundler
 RUN gem install bundler
-RUN gem update --system
 
 # Remove copied helper scripts and temporary files
 RUN rm -rf /tmp/* /var/tmp/*
