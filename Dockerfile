@@ -16,10 +16,6 @@ ENV COREPACK_HOME=/usr/local/share/corepack
 COPY scripts/install-yarn /tmp/install-yarn
 RUN /tmp/install-yarn && yarn --version
 
-# wkhtmltopdf
-COPY scripts/install-wkhtmltopdf /tmp/install-wkhtmltopdf
-RUN /tmp/install-wkhtmltopdf && wkhtmltopdf --version
-
 # FFmpeg
 COPY scripts/install-ffmpeg /tmp/install-ffmpeg
 RUN /tmp/install-ffmpeg && ffmpeg -version && ffprobe -version
