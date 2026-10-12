@@ -8,6 +8,23 @@ apt-get install -y --no-install-recommends \
   jq \
   qpdf \
   poppler-utils \
-  unrtf
+  unrtf \
+  git \
+  openssh-client \
+  curl \
+  ca-certificates \
+  unzip \
+  xz-utils \
+  procps
+
+# Toolchain and headers for gems with native extensions (the slim Ruby image ships neither)
+apt-get install -y --no-install-recommends \
+  build-essential \
+  pkg-config \
+  libyaml-dev \
+  libssl-dev \
+  zlib1g-dev \
+  libffi-dev
+
 apt-get clean
 rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*

@@ -1,4 +1,4 @@
-FROM ruby:4.0.7-trixie
+FROM ruby:4.0.7-slim-trixie
 ARG TARGETPLATFORM
 
 # build essentials

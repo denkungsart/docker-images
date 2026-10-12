@@ -1,4 +1,4 @@
-This Docker image is used in development and testing environments. It aims at mirroring our production setup as close as possible. The image is based on Debian Trixie (see https://github.com/docker-library/ruby/).
+This Docker image is used in development and testing environments. It aims at mirroring our production setup as close as possible. The image is based on the slim Debian Trixie variant of the official Ruby image (see https://github.com/docker-library/ruby/), plus the build toolchain and headers that gems with native extensions need.
 
 ## How to build this image
 
