@@ -20,10 +20,6 @@ RUN /tmp/install-yarn && yarn --version
 COPY scripts/install-ffmpeg /tmp/install-ffmpeg
 RUN /tmp/install-ffmpeg && ffmpeg -version && ffprobe -version
 
-# Chrome & chromedriver
-COPY scripts/install-chrome /tmp/install-chrome
-RUN /tmp/install-chrome
-
 # Install bundler 2 & RubyGems
 RUN gem install bundler
 RUN gem update --system
