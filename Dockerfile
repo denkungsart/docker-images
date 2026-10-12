@@ -24,9 +24,8 @@ RUN /tmp/install-ffmpeg && ffmpeg -version && ffprobe -version
 COPY scripts/install-chrome /tmp/install-chrome
 RUN /tmp/install-chrome
 
-# Install bundler 2 & RubyGems
+# Install bundler
 RUN gem install bundler
-RUN gem update --system
 
 # Remove copied helper scripts and temporary files
 RUN rm -rf /tmp/* /var/tmp/*

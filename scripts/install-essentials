@@ -3,7 +3,6 @@ set -xeo pipefail
 
 apt-get update
 apt-get install -y --no-install-recommends \
-  postgresql-client \
   libvips42t64 \
   libicu76 \
   jq \
@@ -20,7 +19,9 @@ apt-get install -y --no-install-recommends \
 
 # Toolchain and headers for gems with native extensions (the slim Ruby image ships neither)
 apt-get install -y --no-install-recommends \
-  build-essential \
+  gcc \
+  make \
+  libc6-dev \
   pkg-config \
   libyaml-dev \
   libssl-dev \
