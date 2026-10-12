@@ -3,6 +3,7 @@ set -xeo pipefail
 
 apt-get update
 apt-get install -y --no-install-recommends \
+  postgresql-client \
   libvips42t64 \
   libicu76 \
   jq \
