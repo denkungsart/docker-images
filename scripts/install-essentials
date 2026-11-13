@@ -6,6 +6,7 @@ apt-get install -y --no-install-recommends \
   postgresql-client \
   libvips42t64 \
   libicu76 \
+  libjemalloc2 \
   jq \
   qpdf \
   poppler-utils \

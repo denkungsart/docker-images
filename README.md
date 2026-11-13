@@ -25,3 +25,7 @@ The latest official ffmpeg package for Debian is installed <https://packages.deb
 On amd64, the current Google Chrome stable release is installed together with the matching chromedriver from [Chrome for Testing](https://github.com/GoogleChromeLabs/chrome-for-testing). Google does not publish Linux arm64 builds, so arm64 images get Debian's `chromium` and `chromium-driver` packages instead, with `google-chrome` linked to `chromium`.
 
 Chrome is not pinned: rebuilding the image picks up the latest stable release.
+
+### jemalloc
+
+Debian's `libjemalloc2` is installed so specs can preload `libjemalloc.so.2` the way Heroku does in production. It is not preloaded by default: Ruby and everything else in the image still use glibc's malloc unless `LD_PRELOAD` is set.
